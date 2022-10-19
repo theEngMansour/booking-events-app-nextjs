@@ -1,5 +1,4 @@
 import React from "react";
-import prisma from "lib/prisma";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_EVENT } from "hooks/queries";
 import { BOOK_EVENT } from "hooks/mutations";
@@ -13,7 +12,7 @@ export default function Show() {
   const { token, userId } = useContext(AuthContext);
   const router = useRouter();
   const { loading, error, data } = useQuery(GET_EVENT, {
-    variables: { eventId: router.id },
+    variables: { eventId: router?.query?.id },
   });
 
   const [bookEventHandler] = useMutation(BOOK_EVENT, {
