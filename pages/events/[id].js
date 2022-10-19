@@ -7,11 +7,11 @@ import { useState, useContext } from "react";
 import { AuthContext } from "contexts";
 import { Button } from "components";
 
-export default function Show({ params }) {
+export default function Show() {
   const [alert, setAlert] = useState()
   const { token, userId } = useContext(AuthContext);
   const { loading, error, data } = useQuery(GET_EVENT, {
-    variables: { eventId: params?.id },
+    variables: { eventId: 12 },
   });
 
   const [bookEventHandler] = useMutation(BOOK_EVENT, {
@@ -44,15 +44,4 @@ export default function Show({ params }) {
   );
 }
 
-export function getStaticPaths() {
-  const items = await prisma.event.findMany();
-  const paths = items.map((e) => ({ params: { id: e.id.toString() } }));
-  return {
-    paths,
-    fallback: true, // Reload any id new for events added
-  };
-}
 
-export function getStaticProps({ params }) {
-  return { props: { params } };
-}
