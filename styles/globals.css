@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Dubai-Regular';
+}
+
+@font-face { 
+    font-family: "Dubai-Bold"; 
+    src: url(../public/fonts/Dubai-Bold.ttf); 
+}
+  
+@font-face { 
+    font-family: "Dubai-Medium"; 
+    src: url(../public/fonts/Dubai-Medium.ttf); 
+}
+
+@font-face { 
+    font-family: "Dubai-Regular"; 
+    src: url(../public/fonts/Dubai-Regular.ttf); 
+}
+
+@layer utilities {
+    .bg-app {
+      background-color: #cc6600;
+    }
+    .text-app {
+        color: #cc6600
+    }
+    .border-app {
+        border-color: #cc6600
+    }
+    .font-b {
+        font-family: 'Dubai-Bold';
+    }
+    .font-m {
+        font-family: 'Dubai-Medium';
+    }
+    .font-r {
+        font-family: 'Dubai-Regular';
+    }
+  }
+
+
