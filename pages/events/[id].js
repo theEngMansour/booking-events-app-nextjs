@@ -44,7 +44,7 @@ export default function Show({ params }) {
   );
 }
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
   const items = await prisma.event.findMany();
   const paths = items.map((e) => ({ params: { id: e.id.toString() } }));
   return {
@@ -53,6 +53,6 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export function getStaticProps({ params }) {
   return { props: { params } };
 }
