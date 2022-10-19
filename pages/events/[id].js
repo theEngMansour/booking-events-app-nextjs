@@ -5,13 +5,15 @@ import { GET_EVENT } from "hooks/queries";
 import { BOOK_EVENT } from "hooks/mutations";
 import { useState, useContext } from "react";
 import { AuthContext } from "contexts";
+import { useRouter } from "next/router";
 import { Button } from "components";
 
 export default function Show() {
   const [alert, setAlert] = useState()
   const { token, userId } = useContext(AuthContext);
+  const router = useRouter();
   const { loading, error, data } = useQuery(GET_EVENT, {
-    variables: { eventId: 12 },
+    variables: { eventId: router.id },
   });
 
   const [bookEventHandler] = useMutation(BOOK_EVENT, {
