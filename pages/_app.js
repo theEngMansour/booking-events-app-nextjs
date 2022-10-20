@@ -4,6 +4,7 @@ import theme from "src/theme";
 import createEmotionCache from "src/createEmotionCache";
 import RTL from "site-settings/RTL";
 import msgs from "site-settings/site-translations";
+import Head from "next/head";
 import { useState, useEffect } from "react";
 import {
   ApolloClient,
@@ -59,6 +60,11 @@ export default function MyApp(props) {
 
   return (
     <CacheProvider value={emotionCache}>
+      <Head>
+        <title>حجز مناسبات | Booking Events</title>
+        <meta name="description" content="booking events" />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+      </Head>
       <AuthContextProvider>
         <ApolloProvider client={client}>
           <IntlProvider locale={locale} messages={msgs[locale]}>

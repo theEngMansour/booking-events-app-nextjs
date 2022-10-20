@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { Loading } from "components";
 
 export default function Search() {
+  const router = useRouter();
   const { query } = useRouter();
   const { userId } = useContext(AuthContext);
 
@@ -29,8 +30,15 @@ export default function Search() {
         <title>{query.q}</title>
       </Head>
       <Box sx={{ flexGrow: 1 }} className="p-2">
+        <Button
+          onClick={() => router.push("/events")}
+          className="font-b mx-2 bg-app my-2 md:mr-8"
+          variant="contained"
+        >
+          الرجوع
+        </Button>
         <Typography
-          className="text-right text-app my-4 p-0 font-b"
+          className="text-right text-app my-4 p-0 font-b md:mr-8"
           variant="h4"
         >
           {query.q}
@@ -95,19 +103,19 @@ export default function Search() {
                     </>
                   ) : (
                     <>
-                    <Typography
-                      className="text-right m-0 p-1 px-2 font-b bg-green-600 text-white"
-                      variant="body"
-                    >
-                      المستخدمين
-                    </Typography>
-                    <Typography
-                      className="text-center text-app m-0 p-0 font-b"
-                      variant="h4"
-                    >
-                     {username}
-                    </Typography>
-                  </>
+                      <Typography
+                        className="text-right m-0 p-1 px-2 font-b bg-green-600 text-white"
+                        variant="body"
+                      >
+                        المستخدمين
+                      </Typography>
+                      <Typography
+                        className="text-center text-app m-0 p-0 font-b"
+                        variant="h4"
+                      >
+                        {username}
+                      </Typography>
+                    </>
                   )}
                 </Paper>
               </Grid>

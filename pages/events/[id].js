@@ -7,7 +7,7 @@ import { BOOK_EVENT } from "hooks/mutations";
 import { AuthContext } from "contexts";
 import { useRouter } from "next/router";
 import { Alert, Button, Loading } from "components";
-import { Box, Paper, Typography, Link as MuiLink } from "@mui/material";
+import { Box, Paper, Typography, Button as Btn } from "@mui/material";
 
 export default function Show() {
   const [alert, setAlert] = useState();
@@ -34,6 +34,13 @@ export default function Show() {
         <title>{data?.getIdEvents?.title}</title>
       </Head>
       <Box sx={{ flexGrow: 1 }} className="p-2">
+        <Btn
+          onClick={() => router.push("/events")}
+          className="font-b mx-2 bg-app my-2 md:mr-8"
+          variant="contained"
+        >
+          الرجوع
+        </Btn>
         <Grid container spacing={2}>
           <Grid xs={12} md={12} className="md:flex md:justify-center">
             <Paper

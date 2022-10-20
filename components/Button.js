@@ -32,7 +32,6 @@ export default function ButtonApp({
       ) : (
         <Link href={"/login"} passHref>
           <Button
-            disabled
             className="mt-4 mb-2 bg-app font-b mb-4"
             variant="contained"
           >

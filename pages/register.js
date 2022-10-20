@@ -65,12 +65,14 @@ export default function UserNew() {
               />
               <TextField
                 label="البريد الإكتروني"
+                type="email"
                 name="email"
                 className="w-64 md:w-80 text-app font-b mt-2"
                 onChange={({ target }) => setEmail(target.value)}
               />
               <TextField
                 label="كلمة السر"
+                type="password"
                 name="password"
                 className="w-64 md:w-80 text-app font-b mt-2"
                 onChange={({ target }) => setPassword(target.value)}
