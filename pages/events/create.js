@@ -1,4 +1,5 @@
 import * as yup from "yup";
+import Head from "next/head";
 import { useState } from "react";
 import { Formik } from "formik";
 import { useMutation } from "@apollo/client";
@@ -43,6 +44,9 @@ export default function Create() {
 
   return (
     <div>
+      <Head>
+        <title>إنشاء مناسبة</title>
+      </Head>
       <Formik
         initialValues={{
           title: null,

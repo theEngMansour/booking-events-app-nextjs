@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useState, useContext } from "react";
 import { useQuery, useApolloClient } from "@apollo/client";
@@ -33,6 +34,9 @@ export default function Index() {
 
   return (
     <div>
+      <Head>
+        <title>الإحداث</title>
+      </Head>
       <Search />
       {token && <Create />}
       <Box sx={{ flexGrow: 1 }} className="p-2">

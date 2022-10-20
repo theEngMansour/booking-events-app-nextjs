@@ -1,26 +1,45 @@
 import React from "react";
 import Link from "next/link";
+import { Button } from "@mui/material";
 
-export default function Button({ token, userId, creatorId, eventId, bookEventHandler }) {
-    return (
-      <React.Fragment>
-        {token ? (
-          creatorId == userId ? (
-            <button className="btn">مناسبتي</button>
-          ) : (
-            <button
-              className="btn"
-              onClick={() => bookEventHandler({ variables: { eventId } })}
-            >
-              احجز
-            </button>
-          )
+export default function ButtonApp({
+  token,
+  userId,
+  creatorId,
+  eventId,
+  bookEventHandler,
+}) {
+  return (
+    <React.Fragment>
+      {token ? (
+        creatorId == userId ? (
+          <Button
+            disabled
+            className="mt-4 mb-2 bg-app font-b mb-4"
+            variant="contained"
+          >
+            مناسبتي
+          </Button>
         ) : (
-          <Link href={"/login"} passHref>
-            <button className="btn">سجل دخول لتحجز</button>
-          </Link>
-        )}
-      </React.Fragment>
-    );
+          <Button
+            onClick={() => bookEventHandler({ variables: { eventId } })}
+            className="mt-4 mb-2 bg-app font-b mb-4"
+            variant="contained"
+          >
+            احجز
+          </Button>
+        )
+      ) : (
+        <Link href={"/login"} passHref>
+          <Button
+            disabled
+            className="mt-4 mb-2 bg-app font-b mb-4"
+            variant="contained"
+          >
+            سجل دخول لتحجز
+          </Button>
+        </Link>
+      )}
+    </React.Fragment>
+  );
 }
-  

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from "next/head";
 import { useQuery, useMutation, useApolloClient } from "@apollo/client";
 import { BOOKINGS } from "hooks/queries";
 import { CANCEL_BOOKING } from "hooks/mutations";
@@ -26,6 +27,9 @@ export default function Bookings() {
 
   return (
     <React.Fragment>
+      <Head>
+        <title>حجوزاتي</title>
+      </Head>
       {alert && (
         <Alert className="font-b" type="success">
           {alert}

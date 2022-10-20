@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import Head from "next/head";
+import Grid from "@mui/material/Unstable_Grid2";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_EVENT } from "hooks/queries";
 import { BOOK_EVENT } from "hooks/mutations";
-import { useState, useContext } from "react";
 import { AuthContext } from "contexts";
 import { useRouter } from "next/router";
-import { Button } from "components";
+import { Alert, Button, Loading } from "components";
+import { Box, Paper, Typography, Link as MuiLink } from "@mui/material";
 
 export default function Show() {
-  const [alert, setAlert] = useState()
+  const [alert, setAlert] = useState();
   const { token, userId } = useContext(AuthContext);
   const router = useRouter();
   const { loading, error, data } = useQuery(GET_EVENT, {
@@ -20,29 +22,72 @@ export default function Show() {
       setAlert(error.message);
     },
     onCompleted: () => {
-      setAlert("تم حجز المناسبة بنجاح")
+      setAlert("تم حجز المناسبة بنجاح");
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
   return (
-    <div>
-      <h1>{alert}</h1>
-      <h1>{data?.getIdEvents?.title}</h1>
-      <h5>{data?.getIdEvents?.description}</h5>
-      <li>{data?.getIdEvents?.price}</li>
-      <li>{data?.getIdEvents?.date}</li>
-      <p>{data?.getIdEvents?.creator?.username}</p>
-      <Button
-        token={token}
-        userId={userId}
-        creatorId={data?.getIdEvents?.creatorId}
-        eventId={data?.getIdEvents?.id}
-        bookEventHandler={bookEventHandler}
-      />
-    </div>
+    <React.Fragment>
+      <Head>
+        <title>{data?.getIdEvents?.title}</title>
+      </Head>
+      <Box sx={{ flexGrow: 1 }} className="p-2">
+        <Grid container spacing={2}>
+          <Grid xs={12} md={12} className="md:flex md:justify-center">
+            <Paper
+              elevation={0}
+              className="border-2 border-app p-0 md:w-[640px] m-0 py-4 px-4 flex justify-center items-center flex-col"
+              square
+            >
+              {alert && (
+                <Alert className="font-b w-64 md:w-[80%]" type="success">
+                  {alert}
+                </Alert>
+              )}
+              <Typography
+                className="text-center m-0 p-0 font-m my-4 text-app w-full"
+                variant="h4"
+              >
+                {data?.getIdEvents?.title}
+              </Typography>
+              <Typography
+                className="text-center m-0 p-0 font-b my-0 text-app w-full"
+                variant="h3"
+              >
+                ${data?.getIdEvents?.price}
+              </Typography>
+              <Typography
+                className="text-center m-0 p-0 font-m my-0 text-gray-600 w-full"
+                variant="body"
+              >
+                {data?.getIdEvents?.date}
+              </Typography>
+              <Typography
+                className="text-center m-0 p-0 font-m my-0 w-full text-blue-700 m-0 p-0 underline"
+                variant="body"
+              >
+                {data?.getIdEvents?.creator?.username}
+              </Typography>
+              <Typography
+                className="text-right m-0 p-0 font-m my-4 text-gray-600 w-full"
+                variant="body"
+              >
+                {data?.getIdEvents?.description}
+              </Typography>
+              <Button
+                token={token}
+                userId={userId}
+                creatorId={data?.getIdEvents?.creatorId}
+                eventId={data?.getIdEvents?.id}
+                bookEventHandler={bookEventHandler}
+              />
+            </Paper>
+          </Grid>
+        </Grid>
+      </Box>
+      <br></br>
+    </React.Fragment>
   );
 }
-
-
