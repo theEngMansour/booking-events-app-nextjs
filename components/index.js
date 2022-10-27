@@ -7,6 +7,7 @@ import Alert from "./Alert";
 import Loading from "./Loading";
 import EventCreate from "./EventCreate";
 import Button from "./Button";
+import Future from "./Future";
 
 export {
   Event,
@@ -18,4 +19,5 @@ export {
   Loading,
   EventCreate,
   Button,
+  Future,
 };
