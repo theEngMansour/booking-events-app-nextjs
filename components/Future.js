@@ -1,5 +1,5 @@
 import Image from "next/future/image";
-import { Paper, Typography, Box, Grid } from "@mui/material";
+import { Paper, Typography, Grid } from "@mui/material";
 
 export default function Future() {
   return (
