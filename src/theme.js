@@ -6,7 +6,7 @@ const theme = createTheme({
   direction: 'rtl',
   palette: {
     primary: {
-      main: '#cc6600',
+      main: '#148373',
     },
     secondary: {
       main: '#19857b',

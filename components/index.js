@@ -8,15 +8,14 @@ import Loading from "./Loading";
 import EventCreate from "./EventCreate";
 import Button from "./Button";
 
-
 export {
-    Event,
-    Create,
-    Search,
-    Pagination,
-    Booking,
-    Alert,
-    Loading,
-    EventCreate,
-    Button
-} 
+  Event,
+  Create,
+  Search,
+  Pagination,
+  Booking,
+  Alert,
+  Loading,
+  EventCreate,
+  Button,
+};

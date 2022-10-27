@@ -3,42 +3,45 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Dubai-Regular';
+    font-family: 'NotoSansArabic-Regular';
 }
 
 @font-face { 
-    font-family: "Dubai-Bold"; 
-    src: url(../public/fonts/Dubai-Bold.ttf); 
+    font-family: "NotoSansArabic-Bold"; 
+    src: url(../public/fonts/NotoSansArabicBold.ttf); 
 }
   
 @font-face { 
-    font-family: "Dubai-Medium"; 
-    src: url(../public/fonts/Dubai-Medium.ttf); 
+    font-family: "NotoSansArabic-Medium"; 
+    src: url(../public/fonts/VariableFonwdthwght.ttf); 
 }
 
 @font-face { 
-    font-family: "Dubai-Regular"; 
-    src: url(../public/fonts/Dubai-Regular.ttf); 
+    font-family: "NotoSansArabic-Regular"; 
+    src: url(../public/fonts/NotoSansArabicregular.ttf); 
 }
 
 @layer utilities {
     .bg-app {
-      background-color: #cc6600;
+      background-color: #148373;
+    }
+    .bg-app-light {
+      background-color: #278d7f;
     }
     .text-app {
-        color: #cc6600
+        color: #dfb521
     }
     .border-app {
-        border-color: #cc6600
+        border-color: #148373
     }
     .font-b {
-        font-family: 'Dubai-Bold';
+        font-family: 'NotoSansArabic-Bold';
     }
     .font-m {
-        font-family: 'Dubai-Medium';
+        font-family: 'NotoSansArabic-Medium';
     }
     .font-r {
-        font-family: 'Dubai-Regular';
+        font-family: 'NotoSansArabic-Regular';
     }
   }
 
