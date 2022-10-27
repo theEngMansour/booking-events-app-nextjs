@@ -5,7 +5,7 @@ export default function Future() {
   return (
     <Paper
       elevation={0}
-      className="bg-app-light md:w-[872px] md:h-[472px] w-full my-4 md:pb-0 pb-8"
+      className="bg-app-light md:w-[872px] md:h-[472px] w-full my-4 md:pb-0"
     >
       <br></br>
       <br></br>

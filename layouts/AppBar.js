@@ -1,3 +1,4 @@
+import Image from "next/future/image";
 import Link from "next/link";
 import { useContext } from "react";
 import { AuthContext } from "contexts";
@@ -25,19 +26,24 @@ export default function Bar() {
               variant="h6"
               component="div"
             >
-              مناسبات
+              <Image
+                src="/events.png"
+                width={100}
+                height={100}
+                alt="pro icon"
+              />
             </Typography>
           </Link>
           {token && (
             <>
               <Link href={"/events/bookings"} passHref>
-                <Typography className="font-b ml-5 cursor-pointer">
+                <Typography className="font-b ml-5 cursor-pointer text-sm">
                   حجوزاتي
                 </Typography>
               </Link>
               <Typography
                 onClick={() => logout()}
-                className="font-b m-0 p-0 ml-5 cursor-pointer"
+                className="font-b m-0 p-0 ml-5 cursor-pointer text-sm"
               >
                 تسجيل خروج
               </Typography>
@@ -46,12 +52,12 @@ export default function Bar() {
           {!token && (
             <>
               <Link href={"/register"} passHref>
-                <Typography className="font-b m-0 p-0 ml-5 cursor-pointer">
+                <Typography className="font-b m-0 p-0 ml-5 cursor-pointer text-sm">
                   إنشاء حساب
                 </Typography>
               </Link>
               <Link href={"/login"} passHref>
-                <Typography className="font-b m-0 p-0 cursor-pointer">
+                <Typography className="font-b m-0 p-0 cursor-pointer text-sm">
                   تسجيل الدخول
                 </Typography>
               </Link>

@@ -8,6 +8,8 @@ import Loading from "./Loading";
 import EventCreate from "./EventCreate";
 import Button from "./Button";
 import Future from "./Future";
+import HowWork from "./HowWork";
+import Browser from "./Browser";
 
 export {
   Event,
@@ -20,4 +22,6 @@ export {
   EventCreate,
   Button,
   Future,
+  HowWork,
+  Browser
 };
