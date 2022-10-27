@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Image from "next/future/image";
+
 import { Paper, Typography, Box, Grid } from "@mui/material";
 
 export default function Home() {
@@ -26,7 +28,9 @@ export default function Home() {
           </Typography>
           <Grid className="flex justify-center items-center md:flex-row flex-col mt-14">
             <Grid item xs={12} md={4}>
-              <div className="bg-white w-40 h-40 rounded-full text-center"></div>
+              <div className="bg-white w-40 h-40 rounded-full text-center">
+                <Image src="/" />
+              </div>
               <h1 className="text-center text-2xl font-b text-white my-4">
                 سرعة
               </h1>
