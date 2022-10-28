@@ -1,7 +1,3 @@
-## Getting Started
+## BeeMedia Team 
 
-```bash
-pnpm i
-# and
-npm run dev
-```
+<img src="https://i.suar.me/aN92y/m" width='800'/>
