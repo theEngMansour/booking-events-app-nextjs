@@ -26,7 +26,7 @@ export default function Show() {
     },
   });
 
-  if (loading) return <Loading />;
+  if (loading) return "Loading";
 
   return (
     <React.Fragment>

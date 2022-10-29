@@ -22,7 +22,7 @@ export default function Bookings() {
     include: ["Bookings"],
   });
 
-  if (loading) return <Loading />;
+  if (loading) return "Loading";
   if (error) return <p>{error.message}</p>;
 
   return (

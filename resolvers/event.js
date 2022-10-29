@@ -47,19 +47,20 @@ export const eventResolver = {
         throw error;
       }
     },
-    search: async (_, args) => {
+    search: async (_, { contains }) => {
+      const words = contains? contains : " "
       try {
         let users = await prisma.user.findMany({
           where: {
             username: {
-              contains: args.contains,
+              contains: words,
             }
           }
         })
         let events = await prisma.event.findMany({
           where: {
             title: {
-              contains: args.contains,
+              contains: words,
             }
           }
         })

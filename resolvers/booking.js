@@ -11,9 +11,11 @@ export const bookingResolver = {
       try {
         const bookings = await prisma.booking.findMany({
           where: { userId: user.id },
-          include: { 
-            event: true
-          }
+          select: {
+            id: true,
+            eventId: true,
+            event: { select: { title: true } },
+          },
         });
         return bookings.map((booking) => transformBooking(booking));
       } catch (error) {
@@ -57,5 +59,5 @@ export const bookingResolver = {
         }
       }
     ),
-  }
+  },
 };

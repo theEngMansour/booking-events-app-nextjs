@@ -34,6 +34,11 @@ export default function Bar() {
               />
             </Typography>
           </Link>
+          <Link href={"/"} passHref>
+            <Typography className="font-b m-0 p-0 ml-5 cursor-pointer text-sm">
+              الرئيسية
+            </Typography>
+          </Link>
           {token && (
             <>
               <Link href={"/events/bookings"} passHref>

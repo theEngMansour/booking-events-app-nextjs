@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useRouter } from "next/router";
 import { Box, Paper, Typography, Button } from "@mui/material";
@@ -23,6 +24,7 @@ export default function Booking({ data, cancelBooking }) {
             المناسبات التي حجزتها
           </Typography>
           {data.bookings.map((booking) => (
+            
             <Grid
               key={booking.id}
               xs={12}
@@ -34,12 +36,20 @@ export default function Booking({ data, cancelBooking }) {
                 className="border-2 border-app p-0 md:w-[840px] m-0 h-[50px] flex justify-start items-center justify-between"
                 square
               >
-                <Typography
-                  className="text-app m-0 p-0 font-b mr-4"
-                  variant="h6"
+                <Link
+                  href={{
+                    pathname: "/events/[id]",
+                    query: { id: booking.eventId },
+                  }}
+                  passHref
                 >
-                  {booking.event.title.substr(0, 15)}
-                </Typography>
+                  <Typography
+                    className="m-0 p-0 font-b mr-4 cursor-pointer text-blue-700 underline"
+                    variant="h6"
+                  >
+                    {booking.event.title.substr(0, 15)}
+                  </Typography>
+                </Link>
                 <Button
                   onClick={() =>
                     cancelBooking({ variables: { bookingId: booking.id } })

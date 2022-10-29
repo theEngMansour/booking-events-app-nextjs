@@ -47,6 +47,7 @@ export const BOOKINGS = gql`
     bookings {
       id
       createdAt
+      eventId
       event {
         title
       }

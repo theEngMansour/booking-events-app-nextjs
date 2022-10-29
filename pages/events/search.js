@@ -21,7 +21,7 @@ export default function Search() {
     },
   });
 
-  if (loading) return <Loading />;
+  if (loading) return "Loading";
   if (error) return <p>{error.message}</p>;
 
   return (
